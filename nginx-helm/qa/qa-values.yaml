@@ -1,3 +1,5 @@
+env: qa
+valuesFile: nginx-helm/qa/qa-values.yaml
 replicaCount: 3
 service:
   type: ClusterIP
