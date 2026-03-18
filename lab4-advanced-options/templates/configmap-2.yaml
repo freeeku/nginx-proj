@@ -1,0 +1,18 @@
+apiVersion: v1
+
+kind: ConfigMap
+
+metadata:
+
+  name: config-2
+
+data:
+
+  app.properties: |
+
+    app.name=app-2
+
+    app.version=1.0.0
+
+    environment=production
+

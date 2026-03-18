@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: app-4
+
+  labels:
+
+    app: app-4
+
+    version: v1
+
+spec:
+
+  replicas: 2
+
+  selector:
+
+    matchLabels:
+
+      app: app-4
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: app-4
+
+        version: v1
+
+    spec:
+
+      containers:
+
+      - name: nginx
+
+        image: nginx:1.21-alpine
+
+        ports:
+
+        - containerPort: 80
+
+        resources:
+
+          requests:
+
+            memory: "64Mi"
+
+            cpu: "50m"
+
+          limits:
+
+            memory: "128Mi"
+
+            cpu: "100m"
+
+---
+
+apiVersion: v1
+
+kind: Service
+
+metadata:
+
+  name: app-4-service
+
+spec:
+
+  selector:
+
+    app: app-4
+
+  ports:
+
+  - port: 80
+
+    targetPort: 80
+
